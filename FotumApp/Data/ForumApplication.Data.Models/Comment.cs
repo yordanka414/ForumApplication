@@ -2,7 +2,7 @@
 {
     using ForumApplication.Data.Common.Models;
 
-    public class Commet : BaseDeletableModel<int>
+    public class Comment : BaseDeletableModel<int>
     {
         public int PostId { get; set; }
 

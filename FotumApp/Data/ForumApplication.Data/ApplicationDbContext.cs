@@ -29,7 +29,7 @@
 
         public DbSet<Post> Posts { get; set; }
 
-        public DbSet<Commet> Commets { get; set; }
+        public DbSet<Comment> Commets { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 
