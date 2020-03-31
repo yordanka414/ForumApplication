@@ -8,7 +8,6 @@
 
     using ForumApplication.Data.Common.Models;
     using ForumApplication.Data.Models;
-
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
 
@@ -25,6 +24,12 @@
         }
 
         public DbSet<Setting> Settings { get; set; }
+
+        public DbSet<Category> Categories { get; set; }
+
+        public DbSet<Post> Posts { get; set; }
+
+        public DbSet<Commet> Commets { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 

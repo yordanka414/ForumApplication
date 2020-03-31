@@ -58,6 +58,9 @@
 
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
+
+            // da si vzema IPI key ot sendGris
+            services.AddTransient<IEmailSender>(x => new SendGridEmailSender("dheiowksla"));
             services.AddTransient<ISettingsService, SettingsService>();
         }
 

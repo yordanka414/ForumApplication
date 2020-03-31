@@ -1,9 +1,8 @@
 ﻿namespace ForumApplication.Web.ViewModels.Settings
 {
+    using AutoMapper;
     using ForumApplication.Data.Models;
     using ForumApplication.Services.Mapping;
-
-    using AutoMapper;
 
     public class SettingViewModel : IMapFrom<Setting>, IHaveCustomMappings
     {
