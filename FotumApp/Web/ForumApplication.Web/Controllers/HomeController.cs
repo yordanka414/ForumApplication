@@ -3,8 +3,7 @@
     using System.Diagnostics;
     using System.Linq;
 
-    using ForumApplication.Data.Common.Repositories;
-    using ForumApplication.Data.Models;
+    using ForumApplication.Services.Data;
     using ForumApplication.Services.Mapping;
     using ForumApplication.Web.ViewModels;
     using ForumApplication.Web.ViewModels.Home;
@@ -12,21 +11,20 @@
 
     public class HomeController : BaseController
     {
-        private readonly IDeletableEntityRepository<Category> categoriesRepository;
+        private readonly ICategoryService categoryService;
 
-        public HomeController(IDeletableEntityRepository<Category> categories)
+        public HomeController(ICategoryService categoryService)
         {
-            this.categoriesRepository = categories;
+            this.categoryService = categoryService;
         }
 
         public IActionResult Index()
         {
-            var viewMode = new IndexViewModel();
-            var categories = this.categoriesRepository.All()
-                .To<IndexCategoriesViewModel>()
-                .ToList();
-            viewMode.Categories = categories;
-            return this.View(viewMode);
+            var viewModel = new IndexViewModel
+            {
+                Categories = this.categoryService.GetAll<IndexCategoriesViewModel>(null),
+            };
+            return this.View(viewModel);
         }
 
         public IActionResult Privacy()

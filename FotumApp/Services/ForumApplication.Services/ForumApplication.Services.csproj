@@ -18,4 +18,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\ForumApplication.Data.Common\ForumApplication.Data.Common.csproj" />
+  </ItemGroup>
+
 </Project>
