@@ -33,7 +33,8 @@
                 {
                     Name = category.Name,
                     Description = category.Name,
-                    Title = category.ImageUrl,
+                    Title = category.Name,
+                    ImageUrl = category.ImageUrl,
                 });
             }
         }

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ForumApplication.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200331171902_AddInitialModels")]
-    partial class AddInitialModels
+    [Migration("20200402051853_AddingForeignKeyToPost")]
+    partial class AddingForeignKeyToPost
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -246,10 +246,7 @@ namespace ForumApplication.Data.Migrations
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId1")
+                    b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
@@ -258,7 +255,7 @@ namespace ForumApplication.Data.Migrations
 
                     b.HasIndex("IsDeleted");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Posts");
                 });
@@ -422,7 +419,7 @@ namespace ForumApplication.Data.Migrations
 
                     b.HasOne("ForumApplication.Data.Models.ApplicationUser", "User")
                         .WithMany("Posts")
-                        .HasForeignKey("UserId1");
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
