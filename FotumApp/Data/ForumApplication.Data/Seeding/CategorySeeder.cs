@@ -27,14 +27,14 @@
                ("Dogs", "https://ibazar.focus.bg/photosbazar/8c/pics/8c6379fb5ffaf10c4f443ba6c7398f3d.jpg"),
             };
 
-            foreach (var category in categories)
+            foreach (var (name, imageUrl) in categories)
             {
                 await dbContext.AddAsync(new Category
                 {
-                    Name = category.Name,
-                    Description = category.Name,
-                    Title = category.Name,
-                    ImageUrl = category.ImageUrl,
+                    Name = name,
+                    Description = name,
+                    Title = name,
+                    ImageUrl = imageUrl,
                 });
             }
         }

@@ -22,9 +22,14 @@
         {
             var viewModel = new IndexViewModel
             {
-                Categories = this.categoryService.GetAll<IndexCategoriesViewModel>(null),
+                Categories = this.categoryService.GetAll<IndexCategoriesViewModel>(),
             };
             return this.View(viewModel);
+        }
+
+        public IActionResult Cat()
+        {
+            return this.View();
         }
 
         public IActionResult Privacy()

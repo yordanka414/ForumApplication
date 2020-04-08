@@ -4,9 +4,8 @@
 
     public interface ICategoryService
     {
-        IEnumerable<T> GetAll<T>(int? count);
+        IEnumerable<T> GetAll<T>(int? count = null);
 
         T GetByName<T>(string name);
-
     }
 }
